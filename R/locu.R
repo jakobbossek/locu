@@ -1,5 +1,7 @@
 #' Draws a Lorenz curve of a given numeric vector.
 #'
+#' Some longer description might be helpful
+#'
 #' @param x [\code{numeric}]\cr
 #'   Numeric source vector with measured quantities.
 #' @param xlab [\code{character}]\cr
@@ -28,12 +30,12 @@
 #'   \describe{
 #'   \item{source [\code{numeric}]}{the source vector.}
 #'   \item{data [\code{data.frame}]}{the data frame \pkg{ggplot2} was feeded to produce the Lorenz curve.}
-#'   \item{plot [\code{\link[ggplot2]{ggplot}}{the produced \pkg{ggplot2} object.}
+#'   \item{plot [\code{\link[ggplot2]{ggplot}}]}{the produced \pkg{ggplot2} object.}
 #'   }
 #' @export
 #' @examples
-#' x <- abs(rnorm(30, mu = 50, sd = 20))
-#' lor <- lorenz(x, hightlight.below.curve = TRUE)
+#' x <- abs(rnorm(30, mean = 50, sd = 20))
+#' lor <- locu(x, highlight.below.curve = TRUE)
 #' print(head(lor$data))
 #' print(lor$plot)
 locu = function(x,
@@ -75,11 +77,11 @@ locu = function(x,
     source = x,
     data = ggdata,
     plot = pl),
-    class = "lorenz"))
+    class = "locu"))
 }
 
 getPolygonBelowLorenzCurve = function(d) {
-  ggpolygon = data.frame(x = c(d$x, rev(d$x[-1])), y = c(rep(0, length(x)+1), rev(d$y[-1])))
+  ggpolygon = data.frame(x = c(d$x, rev(d$x[-1])), y = c(rep(0, nrow(d)), rev(d$y[-1])))
   return(ggpolygon)
 }
 
