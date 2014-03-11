@@ -36,7 +36,7 @@
 #' lor <- lorenz(x, hightlight.below.curve = TRUE)
 #' print(head(lor$data))
 #' print(lor$plot)
-lorenz = function(x,
+locu = function(x,
   xlab = "x", ylab = "y",
   title = "Lorenz curve",
   highlight.below.curve = FALSE,

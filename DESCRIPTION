@@ -1,4 +1,4 @@
-Package: lorenz
+Package: locuR
 Type: Package
 Title: Lorenz curves with ggplot2 and some common inequality measures.
 Version: 1.0
