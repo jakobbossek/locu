@@ -1,0 +1,13 @@
+Package: lorenz
+Type: Package
+Title: Lorenz curves with ggplot2 and some common inequality measures.
+Version: 1.0
+Date: 2014-03-11
+Author: Jakob Bossek <jakob.bossek@tu-dortmund.de>
+Maintainer: Jakob Bossek <jakob.bossek@tu-dortmund.de>
+Encoding: UTF-8
+Description: Draw neat Lorenz curves with the popular ggplot2 package and
+    computes different inequality measures such as the Gini coefficient.
+License: What license is it under?
+Imports:
+    ggplot2
