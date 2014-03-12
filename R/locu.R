@@ -8,7 +8,7 @@
 #'   Label for the x-axis of the Lorenz curve plot. Default is x.
 #' @param ylab [\code{character}]\cr
 #'   Label for the y-axis of the Lorenz curve plot. Default is y.
-#' @param title [\code{character}]\cr
+#' @param main [\code{character}]\cr
 #'   Plot title. Initialized by default to "Lorenz curve".
 #' @param highlight.below.curve [\code{logical(1)}]\cr
 #'   If \code{TRUE}, the area in between the x-axis and the Lorenz curve is
@@ -40,7 +40,7 @@
 #' print(lor$plot)
 locu = function(x,
   xlab = "x", ylab = "y",
-  title = "Lorenz curve",
+  main = "Lorenz curve",
   highlight.below.curve = FALSE,
   highlight.below.curve.fillcolor = "gray",
   highlight.below.curve.alpha = 0.7,
@@ -72,6 +72,7 @@ locu = function(x,
   pl = pl + geom_point(data = ggdata, aes(x = x, y = y))
   pl = pl + xlab(xlab) + ylab(ylab)
   pl = pl + geom_abline(slope = 1, linetype = "dashed")
+  pl = pl + ggtitle(main)
 
   return(structure(list(
     source = x,

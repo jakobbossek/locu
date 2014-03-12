@@ -1,4 +1,4 @@
 library(testthat)
-library(locuR)
+library(locur)
 
-test_package("locuR")
+test_package("locur")
