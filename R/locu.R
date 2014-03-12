@@ -34,8 +34,8 @@
 #'   }
 #' @export
 #' @examples
-#' x <- abs(rnorm(30, mean = 50, sd = 20))
-#' lor <- locu(x, highlight.below.curve = TRUE)
+#' x = abs(rnorm(30, mean = 50, sd = 20))
+#' lor = locu(x, highlight.below.curve = TRUE)
 #' print(head(lor$data))
 #' print(lor$plot)
 locu = function(x,
