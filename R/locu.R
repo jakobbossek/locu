@@ -48,9 +48,19 @@ locu = function(x,
   highlight.above.curve.fillcolor = "tomato",
   highlight.above.curve.alpha = 0.7
   ) {
-  # FIXME: add checkargs
-  stopifnot(is.vector(x),
-    length(x) > 1)
+
+  rcolors = colors()
+
+  checkArg(x, cl = "numeric", min.len = 2L, lower = 0L, na.ok = FALSE)
+  checkArg(xlab, cl = "character", len = 1L, na.ok = FALSE)
+  checkArg(ylab, cl = "character", len = 1L, na.ok = FALSE)
+  checkArg(main, cl = "character", len = 1L, na.ok = FALSE)
+  checkArg(highlight.below.curve, cl = "logical", len = 1L, na.ok = FALSE)
+  checkArg(highlight.below.curve.alpha, cl = "numeric", len = 1L, lower = 0L, upper = 1L, na.ok = FALSE)
+  checkArg(highlight.below.curve.fillcolor, choices = rcolors)
+  checkArg(highlight.above.curve, cl = "logical", len = 1L, na.ok = FALSE)
+  checkArg(highlight.above.curve.alpha, cl = "numeric", len = 1L, lower = 0L, upper = 1L, na.ok = FALSE)
+  checkArg(highlight.above.curve.fillcolor, choices = rcolors)
 
   ggdata = getLorenzCurveDataPoints(x)
 

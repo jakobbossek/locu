@@ -10,3 +10,5 @@ Description: Draw neat Lorenz curves with the popular ggplot2 package and
 License: What license is it under?
 Depends:
     ggplot2
+Imports:
+    BBmisc
