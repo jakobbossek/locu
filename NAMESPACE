@@ -1,2 +1,3 @@
 export(autoplot.locu)
+export(gini)
 export(locu)
