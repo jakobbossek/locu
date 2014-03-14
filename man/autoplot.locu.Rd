@@ -2,14 +2,15 @@
 \alias{autoplot.locu}
 \title{Actually draws the Lorenz curve.}
 \usage{
-\method{autoplot}{locu}(x, xlab = "x", ylab = "y", main = "Lorenz curve",
-  highlight.below.curve = FALSE, highlight.below.curve.fillcolor = "gray",
+\method{autoplot}{locu}(object, xlab = "x", ylab = "y",
+  main = "Lorenz curve", highlight.below.curve = FALSE,
+  highlight.below.curve.fillcolor = "gray",
   highlight.below.curve.alpha = 0.7, highlight.above.curve = FALSE,
   highlight.above.curve.fillcolor = "tomato",
-  highlight.above.curve.alpha = 0.7)
+  highlight.above.curve.alpha = 0.7, ...)
 }
 \arguments{
-  \item{x}{[\code{\link{locu}}]\cr Object of type
+  \item{object}{[\code{\link{locu}}]\cr Object of type
   \code{\link{locu}}.}
 
   \item{xlab}{[\code{character}]\cr Label for the x-axis of
@@ -43,6 +44,8 @@
 
   \item{highlight.above.curve.fillcolor}{[\code{character}]\cr
   Color given by one of the build-in color names of R.}
+
+  \item{...}{[\code{list}]\cr Further params.}
 }
 \value{
 Object of type \code{\link[ggplot2]{ggplot}}.

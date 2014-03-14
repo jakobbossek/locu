@@ -13,9 +13,9 @@
 #' @export
 #' @examples
 #' x = abs(rnorm(30, mean = 50, sd = 20))
-#' lor = locu(x, highlight.below.curve = TRUE)
+#' lor = locu(x)
 #' print(head(lor$data))
-#' print(lor$plot)
+#' print(autoplot(lor, highlight.below.curve = TRUE))
 locu = function(x) {
   checkArg(x, cl = "numeric", min.len = 2L, lower = 0L, na.ok = FALSE)
   ggdata = getLorenzCurveDataPoints(x)
@@ -28,7 +28,7 @@ locu = function(x) {
 
 #' Actually draws the Lorenz curve.
 #'
-#' @param x [\code{\link{locu}}]\cr
+#' @param object [\code{\link{locu}}]\cr
 #'   Object of type \code{\link{locu}}.
 #' @param xlab [\code{character}]\cr
 #'   Label for the x-axis of the Lorenz curve plot. Default is x.
@@ -51,11 +51,13 @@ locu = function(x) {
 #'   the line of equality is opaque or (semi)transparent.
 #' @param highlight.above.curve.fillcolor [\code{character}]\cr
 #'   Color given by one of the build-in color names of R.
+#' @param ... [\code{list}]\cr
+#'   Further params.
 #' @return
 #'   Object of type \code{\link[ggplot2]{ggplot}}.
 #' @export autoplot.locu
 #' @method autoplot locu
-autoplot.locu = function(x,
+autoplot.locu = function(object,
   xlab = "x", ylab = "y",
   main = "Lorenz curve",
   highlight.below.curve = FALSE,
@@ -63,9 +65,10 @@ autoplot.locu = function(x,
   highlight.below.curve.alpha = 0.7,
   highlight.above.curve = FALSE,
   highlight.above.curve.fillcolor = "tomato",
-  highlight.above.curve.alpha = 0.7
+  highlight.above.curve.alpha = 0.7,
+  ...
   ) {
-  ggdata = x$data
+  ggdata = object$data
   rcolors = colors()
   checkArg(xlab, cl = "character", len = 1L, na.ok = FALSE)
   checkArg(ylab, cl = "character", len = 1L, na.ok = FALSE)
@@ -81,18 +84,18 @@ autoplot.locu = function(x,
   if (highlight.below.curve) {
     ggpolygon = getPolygonBelowLorenzCurve(ggdata)
     pl = pl + geom_polygon(data = ggpolygon,
-      mapping = aes(x = x, y = y),
+      mapping = aes_string(x = "x", y = "y"),
       alpha = highlight.below.curve.alpha,
       fill = highlight.below.curve.fillcolor)
   }
   if (highlight.above.curve) {
     pl = pl + geom_polygon(data = ggdata,
-      mapping = aes(x = x, y = y),
+      mapping = aes_string(x = "x", y = "y"),
       alpha = highlight.above.curve.alpha,
       fill = highlight.above.curve.fillcolor)
   }
-  pl = pl + geom_line(data = ggdata, aes(x = x, y = y))
-  pl = pl + geom_point(data = ggdata, aes(x = x, y = y))
+  pl = pl + geom_line(data = ggdata, aes_string(x = "x", y = "y"))
+  pl = pl + geom_point(data = ggdata, aes_string(x = "x", y = "y"))
   pl = pl + xlab(xlab) + ylab(ylab)
   pl = pl + geom_abline(slope = 1, linetype = "dashed")
   pl = pl + ggtitle(main)

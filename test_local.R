@@ -1,8 +1,6 @@
 library(methods)
 library(testthat)
 library(devtools)
-library(BBmisc)
-library()
 
 load_all(".", reset = TRUE)
 

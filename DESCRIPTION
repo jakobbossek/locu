@@ -9,6 +9,7 @@ Description: Draw neat Lorenz curves with the popular ggplot2 package and
     compute different inequality measures such as the Gini coefficient.
 License: What license is it under?
 Depends:
-    ggplot2
-Imports:
+    ggplot2,
     BBmisc
+Suggests:
+    testthat

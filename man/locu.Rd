@@ -19,8 +19,8 @@ Some longer description might be helpful
 }
 \examples{
 x = abs(rnorm(30, mean = 50, sd = 20))
-lor = locu(x, highlight.below.curve = TRUE)
+lor = locu(x)
 print(head(lor$data))
-print(lor$plot)
+print(autoplot(lor, highlight.below.curve = TRUE))
 }
 
