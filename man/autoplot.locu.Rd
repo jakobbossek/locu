@@ -1,0 +1,53 @@
+\name{autoplot.locu}
+\alias{autoplot.locu}
+\title{Actually draws the Lorenz curve.}
+\usage{
+\method{autoplot}{locu}(x, xlab = "x", ylab = "y", main = "Lorenz curve",
+  highlight.below.curve = FALSE, highlight.below.curve.fillcolor = "gray",
+  highlight.below.curve.alpha = 0.7, highlight.above.curve = FALSE,
+  highlight.above.curve.fillcolor = "tomato",
+  highlight.above.curve.alpha = 0.7)
+}
+\arguments{
+  \item{x}{[\code{\link{locu}}]\cr Object of type
+  \code{\link{locu}}.}
+
+  \item{xlab}{[\code{character}]\cr Label for the x-axis of
+  the Lorenz curve plot. Default is x.}
+
+  \item{ylab}{[\code{character}]\cr Label for the y-axis of
+  the Lorenz curve plot. Default is y.}
+
+  \item{main}{[\code{character}]\cr Plot title. Initialized
+  by default to "Lorenz curve".}
+
+  \item{highlight.below.curve}{[\code{logical(1)}]\cr If
+  \code{TRUE}, the area in between the x-axis and the
+  Lorenz curve is highlighed, otherwise not.}
+
+  \item{highlight.below.curve.alpha}{[\code{numeric(1)}]\cr
+  Numeric value in range [0,1] indicating whether the
+  polygon is opaque or (semi)transparent.}
+
+  \item{highlight.below.curve.fillcolor}{[\code{character}]\cr
+  Color given by one of the build-in color names of R.}
+
+  \item{highlight.above.curve}{[\code{logical(1)}]\cr If
+  \code{TRUE}, the area in between the Lorenz curve and the
+  line of equality is highlighed, otherwise not.}
+
+  \item{highlight.above.curve.alpha}{[\code{numeric(1)}]\cr
+  Numeric value in range [0,1] indicating whether the space
+  between Lorenz curve and the line of equality is opaque
+  or (semi)transparent.}
+
+  \item{highlight.above.curve.fillcolor}{[\code{character}]\cr
+  Color given by one of the build-in color names of R.}
+}
+\value{
+Object of type \code{\link[ggplot2]{ggplot}}.
+}
+\description{
+Actually draws the Lorenz curve.
+}
+

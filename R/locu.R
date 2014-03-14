@@ -1,9 +1,35 @@
-#' Draws a Lorenz curve of a given numeric vector.
+#' Computes support points of the Lorenz curve of a given numeric vector.
 #'
 #' Some longer description might be helpful
 #'
 #' @param x [\code{numeric}]\cr
 #'   Numeric source vector with measured quantities.
+#' @return [\code{list}]
+#'   List containing
+#'   \describe{
+#'   \item{source [\code{numeric}]}{the source vector.}
+#'   \item{data [\code{data.frame}]}{the data frame \pkg{ggplot2} was feeded to produce the Lorenz curve.}
+#'   }
+#' @export
+#' @examples
+#' x = abs(rnorm(30, mean = 50, sd = 20))
+#' lor = locu(x, highlight.below.curve = TRUE)
+#' print(head(lor$data))
+#' print(lor$plot)
+locu = function(x) {
+  checkArg(x, cl = "numeric", min.len = 2L, lower = 0L, na.ok = FALSE)
+  ggdata = getLorenzCurveDataPoints(x)
+
+  return(structure(list(
+    source = x,
+    data = ggdata),
+    class = "locu"))
+}
+
+#' Actually draws the Lorenz curve.
+#'
+#' @param x [\code{\link{locu}}]\cr
+#'   Object of type \code{\link{locu}}.
 #' @param xlab [\code{character}]\cr
 #'   Label for the x-axis of the Lorenz curve plot. Default is x.
 #' @param ylab [\code{character}]\cr
@@ -25,20 +51,11 @@
 #'   the line of equality is opaque or (semi)transparent.
 #' @param highlight.above.curve.fillcolor [\code{character}]\cr
 #'   Color given by one of the build-in color names of R.
-#' @return [\code{list}]
-#'   List containing
-#'   \describe{
-#'   \item{source [\code{numeric}]}{the source vector.}
-#'   \item{data [\code{data.frame}]}{the data frame \pkg{ggplot2} was feeded to produce the Lorenz curve.}
-#'   \item{plot [\code{\link[ggplot2]{ggplot}}]}{the produced \pkg{ggplot2} object.}
-#'   }
-#' @export
-#' @examples
-#' x = abs(rnorm(30, mean = 50, sd = 20))
-#' lor = locu(x, highlight.below.curve = TRUE)
-#' print(head(lor$data))
-#' print(lor$plot)
-locu = function(x,
+#' @return
+#'   Object of type \code{\link[ggplot2]{ggplot}}.
+#' @export autoplot.locu
+#' @method autoplot locu
+autoplot.locu = function(x,
   xlab = "x", ylab = "y",
   main = "Lorenz curve",
   highlight.below.curve = FALSE,
@@ -48,10 +65,8 @@ locu = function(x,
   highlight.above.curve.fillcolor = "tomato",
   highlight.above.curve.alpha = 0.7
   ) {
-
+  ggdata = x$data
   rcolors = colors()
-
-  checkArg(x, cl = "numeric", min.len = 2L, lower = 0L, na.ok = FALSE)
   checkArg(xlab, cl = "character", len = 1L, na.ok = FALSE)
   checkArg(ylab, cl = "character", len = 1L, na.ok = FALSE)
   checkArg(main, cl = "character", len = 1L, na.ok = FALSE)
@@ -61,8 +76,6 @@ locu = function(x,
   checkArg(highlight.above.curve, cl = "logical", len = 1L, na.ok = FALSE)
   checkArg(highlight.above.curve.alpha, cl = "numeric", len = 1L, lower = 0L, upper = 1L, na.ok = FALSE)
   checkArg(highlight.above.curve.fillcolor, choices = rcolors)
-
-  ggdata = getLorenzCurveDataPoints(x)
 
   pl = ggplot()
   if (highlight.below.curve) {
@@ -83,13 +96,9 @@ locu = function(x,
   pl = pl + xlab(xlab) + ylab(ylab)
   pl = pl + geom_abline(slope = 1, linetype = "dashed")
   pl = pl + ggtitle(main)
-
-  return(structure(list(
-    source = x,
-    data = ggdata,
-    plot = pl),
-    class = "locu"))
+  return(pl)
 }
+
 
 getPolygonBelowLorenzCurve = function(d) {
   ggpolygon = data.frame(x = c(d$x, rev(d$x[-1])), y = c(rep(0, nrow(d)), rev(d$y[-1])))
