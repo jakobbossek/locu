@@ -1,3 +1,5 @@
+context("Lorenz curve")
+
 test_that("Lorenz curve support points are computed and ggplot2 object returned by autoplot", {
   x = abs(rnorm(40, mean = 50, sd = 40))
   lorenzCurve = locu(x)

@@ -1,3 +1,5 @@
+context("Gini coefficient")
+
 test_that("gini coefficient values are as expected", {
   # extreme cases
   for (i in 1:10) {
