@@ -1,3 +1,4 @@
 export(autoplot.locu)
 export(gini)
+export(herfindahl)
 export(locu)

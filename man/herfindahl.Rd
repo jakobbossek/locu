@@ -1,0 +1,23 @@
+\name{herfindahl}
+\alias{herfindahl}
+\title{Computes the Herfindahl-(Hirschmann) index measure of concentration.}
+\usage{
+herfindahl(x)
+}
+\arguments{
+  \item{x}{[\code{numeric}]\cr Vector of (positive)
+  numbers.}
+}
+\value{
+[\code{numeric(1)}] Herfindahl index.
+}
+\description{
+Computes the Herfindahl-(Hirschmann) index measure of
+concentration.
+}
+\examples{
+x = c(1, 5, 19, 7, 8)
+H = herfindahl(x)
+print(H)
+}
+
