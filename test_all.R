@@ -9,4 +9,4 @@ if (interactive()) {
   library(locur)
 }
 
-test_dir("inst/tests/")
+test_dir("tests/testthat")
