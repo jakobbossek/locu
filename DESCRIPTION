@@ -5,7 +5,7 @@ Version: 1.0
 Author: Jakob Bossek <jakob.bossek@tu-dortmund.de>
 Maintainer: Jakob Bossek <jakob.bossek@tu-dortmund.de>
 Encoding: UTF-8
-Description: Draw neat Lorenz curves with the popular ggplot2 package and
+Description: Draw Lorenz curves with the popular ggplot2 package and
     compute different inequality measures such as the Gini coefficient.
 License: MIT + file LICENSE
 URL: https://github.com/jbossek/locur
