@@ -8,6 +8,8 @@ Encoding: UTF-8
 Description: Draw neat Lorenz curves with the popular ggplot2 package and
     compute different inequality measures such as the Gini coefficient.
 License: MIT + file LICENSE
+URL: https://github.com/jbossek/locur
+BugReports: https://github.com/jbossek/locur/issues
 Depends:
     ggplot2,
     BBmisc
