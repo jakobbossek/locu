@@ -51,6 +51,8 @@ locu = function(x) {
 #'   the line of equality is opaque or (semi)transparent.
 #' @param highlight.above.curve.fillcolor [\code{character}]\cr
 #'   Color given by one of the build-in color names of R.
+#' @param point.size [\code{numeric(1)}]\cr
+#'   Point size.
 #' @param ... [\code{list}]\cr
 #'   Further params.
 #' @return
@@ -66,6 +68,7 @@ autoplot.locu = function(object,
   highlight.above.curve = FALSE,
   highlight.above.curve.fillcolor = "tomato",
   highlight.above.curve.alpha = 0.7,
+  point.size = 2,
   ...
   ) {
   ggdata = object$data
@@ -79,6 +82,7 @@ autoplot.locu = function(object,
   checkArg(highlight.above.curve, cl = "logical", len = 1L, na.ok = FALSE)
   checkArg(highlight.above.curve.alpha, cl = "numeric", len = 1L, lower = 0L, upper = 1L, na.ok = FALSE)
   checkArg(highlight.above.curve.fillcolor, choices = rcolors)
+  checkArg(point.size, cl = "numeric", len = 1L, lower = 1L, na.ok = FALSE)
 
   pl = ggplot()
   if (highlight.below.curve) {
@@ -95,13 +99,12 @@ autoplot.locu = function(object,
       fill = highlight.above.curve.fillcolor)
   }
   pl = pl + geom_line(data = ggdata, aes_string(x = "x", y = "y"))
-  pl = pl + geom_point(data = ggdata, aes_string(x = "x", y = "y"))
+  pl = pl + geom_point(data = ggdata, aes_string(x = "x", y = "y"), size = point.size)
   pl = pl + xlab(xlab) + ylab(ylab)
   pl = pl + geom_abline(slope = 1, linetype = "dashed")
   pl = pl + ggtitle(main)
   return(pl)
 }
-
 
 getPolygonBelowLorenzCurve = function(d) {
   ggpolygon = data.frame(x = c(d$x, rev(d$x[-1])), y = c(rep(0, nrow(d)), rev(d$y[-1])))

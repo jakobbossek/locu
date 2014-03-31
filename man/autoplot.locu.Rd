@@ -7,7 +7,7 @@
   highlight.below.curve.fillcolor = "gray",
   highlight.below.curve.alpha = 0.7, highlight.above.curve = FALSE,
   highlight.above.curve.fillcolor = "tomato",
-  highlight.above.curve.alpha = 0.7, ...)
+  highlight.above.curve.alpha = 0.7, point.size = 2, ...)
 }
 \arguments{
   \item{object}{[\code{\link{locu}}]\cr Object of type
@@ -44,6 +44,8 @@
 
   \item{highlight.above.curve.fillcolor}{[\code{character}]\cr
   Color given by one of the build-in color names of R.}
+
+  \item{point.size}{[\code{numeric(1)}]\cr Point size.}
 
   \item{...}{[\code{list}]\cr Further params.}
 }
