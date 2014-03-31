@@ -51,6 +51,8 @@ locu = function(x) {
 #'   the line of equality is opaque or (semi)transparent.
 #' @param highlight.above.curve.fillcolor [\code{character}]\cr
 #'   Color given by one of the build-in color names of R.
+#' @param ... [\code{list}]\cr
+#'   Further params.
 #' @return
 #'   Object of type \code{\link[ggplot2]{ggplot}}.
 #' @export autoplot.locu
@@ -63,7 +65,8 @@ autoplot.locu = function(object,
   highlight.below.curve.alpha = 0.7,
   highlight.above.curve = FALSE,
   highlight.above.curve.fillcolor = "tomato",
-  highlight.above.curve.alpha = 0.7
+  highlight.above.curve.alpha = 0.7,
+  ...
   ) {
   ggdata = object$data
   rcolors = colors()
