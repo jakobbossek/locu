@@ -9,7 +9,8 @@ gini(x, normalize = FALSE)
   quantities.}
 
   \item{normalize}{[\code{logical(1)}]\cr If \code{TRUE},
-  the Gini coefficient is normalized.}
+  the Gini coefficient is normalized. Default is
+  \code{FALSE}.}
 }
 \value{
 [\code{numeric(1)}] Gini coefficient.
