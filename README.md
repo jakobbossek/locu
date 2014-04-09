@@ -33,5 +33,5 @@ For the autoplot function, only the first argument is neccessary. All other para
 Get in touch
 ============
 
-Please address questions regarding the usage of locur to the author [Jakob Bossek](j.bossek@gmail.com). Feature requests are welcome.
+Please address questions regarding the usage of locur to the author Jakob Bossek <j.bossek@gmail.com>. Feature requests are welcome.
 
