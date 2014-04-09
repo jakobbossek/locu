@@ -12,8 +12,11 @@
 herfindahl = function(x) {
   #FIXME: maybe later deal with NAs
   checkArg(x, cl = "numeric", lower = 0, min.len = 1, na.ok = FALSE)
-  if(any(is.infinite(x))) {
-    stopf("All values must be finite!")
+  if (any(is.infinite(x))) {
+    stopf("All values must be finite.")
+  }
+  if (any(is.na(x))) {
+    stopf("At the moment NAs are not allowed.")
   }
   n = length(x)
   proportions = x / sum(x)
