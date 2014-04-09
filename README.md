@@ -4,14 +4,15 @@ locur
 This is a small package for the famous statistical programming language R. It offers the possibility to draw nice Lorenz curves with Hadley Wickhams ggplot2 package and compute different inequality measures (until now only the Gini-Index and the Herfindahl-Index are implemented).
 
 To use it you simply need to install it from CRAN with
-```R
+```splus
 install.packages("locur")
 ```
 
 Example
 =======
+
 Imagine we have the monthly income of several employees of the company COM.pany given as a vector. We can now simply draw a Lorenz curve for this data with the following R-code:
-```R
+```splus
 income = c(1,4,5,3,7,7,7,40) * 1000 # our source data
 lorenzCurve = locu(income)
 pl = autoplot(
