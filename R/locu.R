@@ -1,6 +1,8 @@
 #' Computes support points of the Lorenz curve of a given numeric vector.
 #'
-#' Some longer description might be helpful
+#' This function is the initial point to draw a Lorenz curve. It computes the
+#' support points of the curve. Call \code{autoplot} on the result object to
+#' actually draw the curve.
 #'
 #' @param x [\code{numeric}]\cr
 #'   Numeric source vector with measured quantities.
