@@ -15,7 +15,10 @@ locu(x)
 feeded to produce the Lorenz curve.} }
 }
 \description{
-Some longer description might be helpful
+This function is the initial point to draw a Lorenz curve.
+It computes the support points of the curve. Call
+\code{autoplot} on the result object to actually draw the
+curve.
 }
 \examples{
 x = abs(rnorm(30, mean = 50, sd = 20))
