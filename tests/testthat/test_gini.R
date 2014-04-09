@@ -9,7 +9,7 @@ test_that("gini coefficient values are as expected", {
     expect_equal(gini(x), (n-1)/n, "Gini coefficient should be maximal, if one element contains everything.")
   }
 
-  for (i in 1:100) {
+  for (i in 2:5) {
     x = rep(runif(1), i)
     expect_equal(gini(x), 0, "Gini coefficient should be zero, if all elements are equal.")
   }
