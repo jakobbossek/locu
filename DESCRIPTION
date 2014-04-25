@@ -1,4 +1,4 @@
-Package: locur
+Package: locu
 Type: Package
 Title: Lorenz curves with ggplot2 and some common inequality measures.
 Version: 1.0
@@ -8,8 +8,8 @@ Encoding: UTF-8
 Description: Draw Lorenz curves with the popular ggplot2 package and
     compute different inequality measures such as the Gini coefficient.
 License: MIT + file LICENSE
-URL: https://github.com/jbossek/locur
-BugReports: https://github.com/jbossek/locur/issues
+URL: https://github.com/jbossek/locu
+BugReports: https://github.com/jbossek/locu/issues
 Depends:
     ggplot2,
     BBmisc

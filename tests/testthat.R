@@ -1,2 +1,2 @@
 library(testthat)
-test_check("locur")
+test_check("locu")
