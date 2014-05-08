@@ -1,5 +1,7 @@
 # locu
 
+Travis CI build status: [![Build Status](https://travis-ci.org/jakobbossek/locu.svg?branch=master)](https://travis-ci.org/jakobbossek/locu)
+
 This is a small package for the famous statistical programming language R. It offers the possibility to draw nice Lorenz curves with Hadley Wickhams ggplot2 package and compute different inequality measures (until now only the Gini-Index and the Herfindahl-Index are implemented).
 
 To use it you simply need to install it from CRAN with
