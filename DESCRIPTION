@@ -13,6 +13,8 @@ BugReports: https://github.com/jbossek/locu/issues
 Depends:
     ggplot2,
     BBmisc (>= 1.6)
+Imports:
+    checkmate (>= 1.1)
 Suggests:
     testthat
 Roxygen: list(wrap = FALSE)
