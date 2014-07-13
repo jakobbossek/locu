@@ -19,7 +19,7 @@
 #' print(head(lor$data))
 #' print(autoplot(lor, highlight.below.curve = TRUE))
 locu = function(x) {
-  checkArg(x, cl = "numeric", min.len = 2L, lower = 0L, na.ok = FALSE)
+  assertNumeric(x, min.len = 2L, lower = 0L, any.missing = FALSE)
   ggdata = getLorenzCurveDataPoints(x)
 
   return(structure(list(
@@ -75,16 +75,16 @@ autoplot.locu = function(object,
   ) {
   ggdata = object$data
   rcolors = colors()
-  checkArg(xlab, cl = "character", len = 1L, na.ok = FALSE)
-  checkArg(ylab, cl = "character", len = 1L, na.ok = FALSE)
-  checkArg(main, cl = "character", len = 1L, na.ok = FALSE)
-  checkArg(highlight.below.curve, cl = "logical", len = 1L, na.ok = FALSE)
-  checkArg(highlight.below.curve.alpha, cl = "numeric", len = 1L, lower = 0L, upper = 1L, na.ok = FALSE)
-  checkArg(highlight.below.curve.fillcolor, choices = rcolors)
-  checkArg(highlight.above.curve, cl = "logical", len = 1L, na.ok = FALSE)
-  checkArg(highlight.above.curve.alpha, cl = "numeric", len = 1L, lower = 0L, upper = 1L, na.ok = FALSE)
-  checkArg(highlight.above.curve.fillcolor, choices = rcolors)
-  checkArg(point.size, cl = "numeric", len = 1L, lower = 1L, na.ok = FALSE)
+  assertCharacter(xlab, len = 1L, any.missing = FALSE)
+  assertCharacter(ylab, len = 1L, any.missing = FALSE)
+  assertCharacter(main, len = 1L, any.missing = FALSE)
+  assertFlag(highlight.below.curve, na.ok = FALSE)
+  assertNumeric(highlight.below.curve.alpha, len = 1L, lower = 0L, upper = 1L, any.missing = FALSE)
+  assertChoice(highlight.below.curve.fillcolor, choices = rcolors)
+  assertFlag(highlight.above.curve, na.ok = FALSE)
+  assertNumeric(highlight.above.curve.alpha, len = 1L, lower = 0L, upper = 1L, any.missing = FALSE)
+  assertChoice(highlight.above.curve.fillcolor, choices = rcolors)
+  assertNumeric(point.size, len = 1L, lower = 1L, any.missing = FALSE)
 
   pl = ggplot()
   if (highlight.below.curve) {

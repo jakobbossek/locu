@@ -11,7 +11,7 @@
 #' print(H)
 herfindahl = function(x) {
   #FIXME: maybe later deal with NAs
-  checkArg(x, cl = "numeric", lower = 0, min.len = 1, na.ok = FALSE)
+  assertNumeric(x, lower = 0, min.len = 1, any.missing = FALSE)
   if (any(is.infinite(x))) {
     stopf("All values must be finite.")
   }
